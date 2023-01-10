@@ -74,7 +74,7 @@ local function symbolInfo_treemaker(symbols)
 	-- sort with repect to node height and location
 	-- nodes closer to root node come before others
 	-- nodes and same level are arranged according to scope
-	table.sort(symbols, function(a, b)
+	local _, _ = pcall(table.sort, symbols, function(a, b)
 		local loc = symbol_relation(a, b)
 		if loc == "after" or loc == "within" then
 			return true
